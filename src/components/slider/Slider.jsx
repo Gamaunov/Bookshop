@@ -22,7 +22,7 @@ const Slider = () => {
       </div>
       <Swiper
         modules={[Autoplay, Navigation, Pagination, A11y, EffectCube]}
-        autoplay={{ delay: 5000000 }}
+        autoplay={{ delay: 5000000 }} //todo 5000
         spaceBetween={50}
         slidesPerView={1}
         navigation
