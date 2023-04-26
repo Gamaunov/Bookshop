@@ -405,6 +405,12 @@ body {
   .category {
     cursor: pointer;
     position: relative;
+    &:hover::before {
+      content: url('../assets/img/circle.svg');
+      position: absolute;
+      top: -1px;
+      left: -14px;
+    }
     .active {
       font-weight: 700;
       font-size: 16px;
