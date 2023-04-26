@@ -2,8 +2,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { categories } from '../utils/categories';
 import Card from './Card';
 import cl from 'classnames';
+import { useEffect, useState } from 'react';
 
 const Categories = () => {
+  const [active, setActive] = useState(0)
 
 
   return (
@@ -12,8 +14,9 @@ const Categories = () => {
         <ul className='categories'>
           {categories.map((category, i) => (
             <li
-            className='category'
-            key={uuidv4()}
+              onClick={() => setActive(i)}
+              className={active === i ? 'active' : 'category'}
+              key={uuidv4()}
             >
               {category}
             </li>

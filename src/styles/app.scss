@@ -411,18 +411,18 @@ body {
       top: -1px;
       left: -14px;
     }
-    .active {
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 20px;
-      color: #1c2a39;
-      list-style: circle;
-      &::before {
-        content: url('../assets/img/circle.svg');
-        position: absolute;
-        top: -1px;
-        left: -14px;
-      }
-    }
+  }
+}
+.active {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1c2a39;
+  position: relative;
+  &::before {
+    content: url('../assets/img/circle.svg');
+    position: absolute;
+    top: -1px;
+    left: -14px;
   }
 }
