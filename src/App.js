@@ -5,9 +5,7 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <div className="main-slider">
-        <Slider />
-      </div>
+      <Slider />
     </div>
   );
 }
