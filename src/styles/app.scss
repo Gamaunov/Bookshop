@@ -56,14 +56,14 @@ body {
   }
   &-navList {
     display: flex;
-    max-width: 400px;
-    column-gap: 20px;
+    column-gap: 18px;
     justify-content: space-evenly;
     color: var(--color-not-focus);
-    font-weight: 900;
+    font-weight: 700;
     font-size: 10px;
     line-height: 12px;
     text-transform: uppercase;
+
     @media (max-width: 1024px) {
       column-gap: 20px;
     }
@@ -73,7 +73,20 @@ body {
   }
   &-link {
     cursor: pointer;
+    &:nth-child(1) {
+      width: 45px;
+    }
+    &:nth-child(2) {
+      width: 81px;
+    }
+    &:nth-child(3) {
+      width: 117px;
+    }
+    &:nth-child(4) {
+      width: 37px;
+    }
     &:hover {
+      font-weight: 900;
       color: var(--color-focus);
     }
   }
