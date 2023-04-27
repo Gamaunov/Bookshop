@@ -1,5 +1,6 @@
 import React from 'react';
 import cover from '../assets/img/book-not-found.jpg';
+import Button from './Button';
 
 const Card = () => {
 
@@ -12,7 +13,7 @@ const Card = () => {
         <div className='card__rating'>rating</div>
         <p className='card__description'>description</p>
         <div className='card__price'>price=2=2</div>
-        <button className='card__btn'>buy now</button>
+        <Button text='buy now' />
       </div>
     </div>
   );
