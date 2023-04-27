@@ -31,6 +31,7 @@ body {
   @media (max-width: 768px) {
     width: 550px;
     position: relative;
+    margin-top: 85px;
   }
   @media (max-width: 580px) {
     width: 430px;
@@ -43,15 +44,17 @@ body {
     font-size: 24px;
     line-height: 29px;
     @media (max-width: 768px) {
+      position: absolute;
+      top: -30px;
+      left: 0;
       font-size: 20px;
       line-height: 26px;
     }
   }
   &-nav {
-    @media (max-width: 768px) {
-      position: absolute;
-      bottom: -30px;
-      left: 0;
+    @media (max-width: 480px) {
+      font-size: 8px;
+      column-gap: 0;
     }
   }
   &-navList {
@@ -69,6 +72,7 @@ body {
     }
     @media (max-width: 480px) {
       font-size: 9px;
+      column-gap: 2px;
     }
   }
   &-link {
@@ -98,6 +102,11 @@ body {
     position: relative;
     @media (max-width: 1024px) {
       column-gap: 20px;
+    }
+    @media (max-width: 480px) {
+      position: absolute;
+      top: -30px;
+      right: 0;
     }
   }
   &-icon {
@@ -144,6 +153,9 @@ body {
   font-weight: normal;
   border-radius: 5px;
   padding: 5px 10px;
+  @media (max-width: 480px) {
+    bottom: -55px;
+  }
 }
 .header__input:focus {
   outline: 2px solid var(--color-focus);
