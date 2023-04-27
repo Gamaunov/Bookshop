@@ -436,11 +436,14 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-    padding: 45px 150px;
+    padding: 45px 126px;
   }
   .category {
     cursor: pointer;
     position: relative;
+    display: block;
+    min-height: 20px;
+    min-width: 165px;
     &:hover::before {
       content: url('../assets/img/circle.svg');
       position: absolute;
