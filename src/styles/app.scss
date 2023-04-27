@@ -79,7 +79,10 @@ body {
   }
   &-userBar {
     display: flex;
+    align-items: center;
+    justify-content: center;
     column-gap: 40px;
+    position: relative;
     @media (max-width: 1024px) {
       column-gap: 20px;
     }
@@ -91,6 +94,7 @@ body {
       color: var(--color-focus);
     }
   }
+
   &-shopBag {
     position: relative;
   }
@@ -110,6 +114,38 @@ body {
     background-color: #ff353a;
     border-radius: 50%;
     cursor: pointer;
+  }
+}
+
+.hidden {
+  display: none;
+}
+.header__input {
+  position: absolute;
+  bottom: -35px;
+  right: 0;
+  width: 300px;
+  border: 1px solid var(--color-focus);
+  outline: none;
+  font-size: 10px;
+  font-weight: normal;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+.header__input:focus {
+  outline: 2px solid var(--color-focus);
+  width: 300px;
+}
+.clearIcon {
+  position: absolute;
+  right: 8px;
+  top: 33px;
+  width: 15px;
+  height: 15px;
+  opacity: 0.3;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
   }
 }
 
