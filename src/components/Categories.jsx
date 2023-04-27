@@ -47,12 +47,10 @@ const Categories = () => {
               const author = [item.volumeInfo.authors];
               const title = item.volumeInfo.title;
               const description = item.volumeInfo.description
-                ?.slice(0, 100)
+                ?.slice(0, 94)
                 .concat('...');
               const price = item.saleInfo?.retailPrice?.amount;
               const currencyCode = item.saleInfo?.retailPrice?.currencyCode;
-              console.log(item.volumeInfo);
-              // console.log('averageRating',item.volumeInfo?.averageRating);
               const stars = item.volumeInfo?.averageRating;
               const reviews = item.volumeInfo?.ratingsCount;
               return (

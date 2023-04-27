@@ -13,6 +13,9 @@ const Card = ({
   stars,
   reviews,
 }) => {
+  const currencyCodeType =
+    currencyCode === 'RUB' ? '₽' : currencyCode === 'USD' ? '$' : currencyCode;
+
   return (
     <div className="card">
       <img className="card__img" src={img ? img : cover} alt="book" />
@@ -26,7 +29,8 @@ const Card = ({
         </div>
         <p className="card__description">{description}</p>
         <div className="card__price">
-          {currencyCode} {price}
+          {currencyCodeType}
+          {price}
         </div>
         <Button text="buy now" />
       </div>
