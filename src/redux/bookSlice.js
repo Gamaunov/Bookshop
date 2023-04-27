@@ -2,8 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  categoryId: 1,
-  currentPage: 1,
+  searchValue: 'subject:Architecture',
 };
 const API_KEY = process.env.REACT_APP_KEY;
 
@@ -22,11 +21,8 @@ const bookSlice = createSlice({
   name: 'book',
   initialState,
   reducers: {
-    setCategoryId(state, action) {
+    setSearchValue(state, action) {
       state.categoryId = action.payload;
-    },
-    setCurrentPage(state, action) {
-      state.currentPage = action.payload;
     },
   },
   extraReducers: {
@@ -45,6 +41,6 @@ const bookSlice = createSlice({
   },
 });
 
-export const { setCategoryId, setCurrentPage } = bookSlice.actions;
+export const { setSearchValue } = bookSlice.actions;
 
 export default bookSlice.reducer;
