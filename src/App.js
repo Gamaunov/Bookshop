@@ -6,8 +6,8 @@ function App() {
   return (
     <div className="container">
       <Header />
-      {/* <Slider />
-      <Categories /> */}
+      <Slider />
+      {/* <Categories /> */}
     </div>
   );
 }
