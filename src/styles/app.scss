@@ -35,6 +35,7 @@ body {
   }
   @media (max-width: 580px) {
     width: 430px;
+    margin: 40px 163px;
   }
   @media (max-width: 480px) {
     width: 310px;
@@ -200,6 +201,9 @@ body {
 }
 .swiper {
   margin: 0 auto 100px;
+  @media (max-width: 580px) {
+    margin: 0 auto 50px;
+  }
 }
 .slider-img {
   width: 1120px;
@@ -366,6 +370,25 @@ body {
     position: absolute;
     top: -650px;
     left: -350px;
+    @media (max-width: 1080px) {
+      top: -685px;
+      left: -226px;
+    }
+    @media (max-width: 978px) {
+      top: -685px;
+      left: -162px;
+    }
+    @media (max-width: 755px) {
+      top: -508px;
+      left: -108px;
+    }
+    @media (max-width: 580px) {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+    }
   }
   &__cards {
     display: grid;
@@ -373,11 +396,27 @@ body {
     grid-template-rows: repeat(1, 300px);
     grid-auto-flow: dense;
     grid-gap: 95px 75px;
+    // @media (max-width: 1320px) {
+    //   grid-gap: 95px 75px;
+    // }
+    @media (max-width: 1080px) {
+      grid-template-columns: repeat(1, 430px);
+    }
+    @media (max-width: 755px) {
+      grid-template-columns: repeat(1, 280px);
+      grid-template-rows: repeat(1, 535px);
+    }
+    @media (max-width: 580px) {
+      grid-gap: 30px 75px;
+    }
   }
   &__btn {
     display: flex;
     justify-content: center;
     margin: 100px 0 75px;
+    @media (max-width: 580px) {
+      margin: 30px 0 75px;
+    }
   }
 }
 
@@ -386,6 +425,17 @@ body {
   display: flex;
   align-items: center;
   column-gap: 35px;
+  @media (max-width: 755px) {
+    flex-direction: column;
+    max-width: 280px;
+    padding: 10px;
+    border: 1px solid var(--color-btn);
+    background-color: white;
+  }
+  // @media (max-width: 978px) {
+  //   flex-direction: column;
+  //   justify-content: center;
+  // }
   .card__img {
     width: 212px;
     height: 300px;
@@ -393,6 +443,10 @@ body {
     -moz-box-shadow: 0px 15px 14px -5px rgba(34, 60, 80, 0.21);
     box-shadow: 0px 15px 14px -5px rgba(34, 60, 80, 0.21);
     object-fit: cover;
+    @media (max-width: 755px) {
+      width: 200px;
+      height: 260px;
+    }
   }
   .card__text {
     display: flex;
@@ -404,6 +458,11 @@ body {
     font-size: 16px;
     line-height: 20px;
     color: var(--color-focus);
+    @media (max-width: 755px) {
+      max-width: 265px;
+      margin-top: 20px;
+      align-items: center;
+    }
   }
   .card__author {
     font-family: 'Open Sans', Verdana, sans-serif;
@@ -412,8 +471,10 @@ body {
     font-weight: 400;
     color: var(--color-not-focus);
     margin-bottom: 10px;
+    // min-height: 14px;
   }
   .card__title {
+    // min-height: 20px;
   }
   .card__rating {
     font-family: 'Open Sans', Verdana, sans-serif;
@@ -421,6 +482,7 @@ body {
     line-height: 14px;
     font-weight: 400;
     color: var(--color-not-focus);
+    // min-height: 24px;
     margin-bottom: 10px;
   }
   .card__description {
@@ -431,12 +493,14 @@ body {
     line-height: 14px;
     font-weight: 400;
     color: var(--color-not-focus);
+    // min-height: 41px;
     margin-bottom: 10px;
   }
   .card__price {
     font-size: 13px;
     line-height: 16px;
     color: var(--color-focus);
+    // min-height: 15px;
     margin-bottom: 10px;
   }
 }
@@ -488,11 +552,33 @@ body {
   font-size: 12px;
   line-height: 15px;
   color: #5c6a79;
+  @media (max-width: 580px) {
+    align-self: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
   .categories {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
     padding: 45px 126px;
+    // @media (max-width: 1320px) {
+    //   padding: 50px 70px;
+    // }
+    @media (max-width: 1200px) {
+      padding: 45px 40px;
+    }
+    @media (max-width: 755px) {
+      row-gap: 10px;
+      padding: 30px 30px;
+    }
+    @media (max-width: 580px) {
+      display: grid;
+      grid-template-columns: repeat(2, 142px);
+      row-gap: 2px;
+      padding: 10px 20px 10px 35px;
+    }
   }
   .category {
     cursor: pointer;
@@ -519,5 +605,9 @@ body {
     position: absolute;
     top: -1px;
     left: -14px;
+  }
+  @media (max-width: 755px) {
+    font-size: 14px;
+    line-height: 16px;
   }
 }

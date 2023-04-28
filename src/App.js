@@ -7,7 +7,7 @@ function App() {
     <div className="container">
       <Header />
       <Slider />
-      {/* <Categories /> */}
+      <Categories />
     </div>
   );
 }

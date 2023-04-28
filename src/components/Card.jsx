@@ -21,7 +21,7 @@ const Card = ({
       <img className="card__img" src={img ? img : cover} alt="book" />
       <div className="card__text">
         <div className="card__author">{author}</div>
-        <h2 className="card__title">{title}</h2>
+        <div className="card__title">{title}</div>
         <div className="card__rating">
           {stars > 0.4 && reviews > 0 && (
             <Star stars={stars} reviews={reviews} />
