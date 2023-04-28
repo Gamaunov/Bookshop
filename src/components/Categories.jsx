@@ -9,6 +9,7 @@ const Categories = () => {
   const [active, setActive] = useState(0);
   const [search, setSearch] = useState('subject:Fiction');
   const [bookData, setBookData] = useState([]);
+  const [showLoadMoreBtn, setShowLoadMoreBtn] = useState(false);
 
   const API_KEY = process.env.REACT_APP_KEY;
   const handleClickCategory = (i) => {
@@ -18,10 +19,11 @@ const Categories = () => {
     axios
       .get(
         `https://www.googleapis.com/books/v1/volumes?q=${search}
-    &key=${API_KEY}&printType=books&startIndex=0&maxResults=6&langRestrict=en`,
+      &key=${API_KEY}&printType=books&startIndex=0&maxResults=6&langRestrict=en`,
       )
       .then((res) => setBookData(res.data.items))
       .catch((e) => console.log(e));
+    setShowLoadMoreBtn(true);
   };
 
   return (
@@ -68,9 +70,11 @@ const Categories = () => {
               );
             })}
           </div>
-          <div className="main__btn">
-            <Button text="Load more" />
-          </div>
+          {showLoadMoreBtn && (
+            <div className="main__btn">
+              <Button text="Load more" />
+            </div>
+          )}
         </section>
       </main>
     </>

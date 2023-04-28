@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import user from '../assets/img/user.svg';
 import search from '../assets/img/search.svg';
 import shopBag from '../assets/img/shop-bag.svg';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const inputRef = useRef();
@@ -26,7 +27,9 @@ const Header = () => {
   };
   return (
     <div className="header">
-      <h1 className="header-logo">Bookshop</h1>
+      <Link to="/">
+        <h1 className="header-logo">Bookshop</h1>
+      </Link>
       <nav className="header-nav">
         <ul className="header-navList">
           <li className="header-link">books</li>
@@ -36,7 +39,9 @@ const Header = () => {
         </ul>
       </nav>
       <div className="header-userBar">
-        <img className="header-icon" src={user} alt="user" />
+        <Link to="/user">
+          <img className="header-icon" src={user} alt="user" />
+        </Link>
         <img
           onClick={handleClassInput}
           className="header-icon"
@@ -65,10 +70,12 @@ const Header = () => {
           </svg>
         )}
 
-        <div className="header-shopBag">
-          <img className="header-icon" src={shopBag} alt="shopBag" />
-          <span className="header-shopCount">3</span>
-        </div>
+        <Link to='/shopbag'>
+          <div className="header-shopBag">
+            <img className="header-icon" src={shopBag} alt="shopBag" />
+            <span className="header-shopCount">3</span>
+          </div>
+        </Link>
       </div>
     </div>
   );

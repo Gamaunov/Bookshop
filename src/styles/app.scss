@@ -611,3 +611,48 @@ body {
     line-height: 16px;
   }
 }
+
+//pages => changebook + notFound + shopBag+ topBooks + user
+
+//topBooks
+.top-books {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  font-family: 'OpenSans', sans-serif;
+  font-size: 14px;
+  margin-bottom: 100px;
+  @media (max-width: 978px) {
+    font-size: 10px;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 280px);
+    grid-template-rows: repeat(25, 50px);
+    align-items: center;
+    grid-gap: 5px 5px;
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(3, 280px);
+      grid-template-rows: repeat(34, 50px);
+    }
+    @media (max-width: 978px) {
+      grid-template-columns: repeat(3, 230px);
+      grid-template-rows: repeat(34, 30px);
+    }
+    @media (max-width: 755px) {
+      grid-template-columns: repeat(2, 230px);
+      grid-template-rows: repeat(50, 30px);
+    }
+    @media (max-width: 580px) {
+      grid-template-columns: repeat(2, 140px);
+      grid-template-rows: repeat(50, 30px);
+    }
+  }
+  &__item {
+  }
+  &__item--i {
+    font-weight: bold;
+    color: var(--color-btn);
+  }
+}
