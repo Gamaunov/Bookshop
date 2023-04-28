@@ -4,9 +4,9 @@ import Button from '../components/Button';
 
 const User = () => {
   return (
-    <div>
-      <p>
-        You don't need authorization to use this application, although our
+    <div className="user">
+      <p className="user__text">
+        You don't need Authorization to use this Application, although our
         programmers are working on it, so...
       </p>
       <Link to="/">

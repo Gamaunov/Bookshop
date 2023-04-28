@@ -93,7 +93,7 @@ export const topBooks = [
   'The Trayvon Generatio',
   'Trust',
   'Upgrade',
-  'Either/Or',
+  'Love Marriage',
   'Vladimir',
   'When We Were Sisters',
   'Woman Without Shame',

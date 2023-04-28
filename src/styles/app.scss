@@ -656,3 +656,42 @@ body {
     color: var(--color-btn);
   }
 }
+
+//changeBook
+.change-book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  font-family: 'OpenSans', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  &__text {
+    display: block;
+    max-width: 80%;
+  }
+}
+
+//notFound
+.not-found {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  &__text {
+  }
+}
+
+//user
+.user {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  &__text {
+  }
+}
