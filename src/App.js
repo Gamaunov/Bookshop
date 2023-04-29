@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Cart from './pages/ShopBag';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import User from './pages/User';

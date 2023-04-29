@@ -3,18 +3,22 @@ import cover from '../assets/img/book-not-found.jpg';
 import Button from './Button';
 import Star from './Star';
 
-const Card = ({
-  img,
-  author,
-  title,
-  description,
-  price,
-  currencyCode,
-  stars,
-  reviews,
-}) => {
+const Card = ({ book }) => {
+  const img = book.volumeInfo.imageLinks?.thumbnail;
+  const author = [book.volumeInfo.authors];
+  const title = book.volumeInfo.title;
+  const description = book.volumeInfo.description?.slice(0, 94).concat('...');
+  const price = book.saleInfo?.retailPrice?.amount;
+  const currencyCode = book.saleInfo?.retailPrice?.currencyCode;
+  const stars = book.volumeInfo?.averageRating;
+  const reviews = book.volumeInfo?.ratingsCount;
+
   const currencyCodeType =
-    currencyCode === 'RUB' ? '₽' : currencyCode === 'USD' ? '$' : currencyCode;
+    currencyCode !== undefined && currencyCode === 'RUB'
+      ? '₽'
+      : currencyCode === 'USD'
+      ? '$'
+      : currencyCode;
 
   return (
     <div className="card">

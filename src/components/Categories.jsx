@@ -1,30 +1,38 @@
 import { v4 as uuidv4 } from 'uuid';
-import { categories } from '../utils/categories';
 import Card from './Card';
 import { useState } from 'react';
 import Button from './Button';
-import axios from 'axios';
-import { searchValue } from '../utils/searchValue';
+import { useDispatch, useSelector } from 'react-redux';
+import { getBooks } from '../redux/bookSlice/bookSlice';
+
 const Categories = () => {
   const [active, setActive] = useState(0);
-  const [search, setSearch] = useState('subject:Fiction');
-  const [bookData, setBookData] = useState([]);
+  const [index, setIndex] = useState(0);
   const [showLoadMoreBtn, setShowLoadMoreBtn] = useState(false);
 
-  const API_KEY = process.env.REACT_APP_KEY;
-  const handleClickCategory = (i) => {
-    setActive(i);
-    setSearch(searchValue[i]);
+  const dispatch = useDispatch();
 
-    axios
-      .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${search}
-      &key=${API_KEY}&printType=books&startIndex=0&maxResults=6&langRestrict=en`,
-      )
-      .then((res) => setBookData(res.data.items))
-      .catch((e) => console.log(e));
+  const books = useSelector((state) => state.bookApi.books.items);
+  const categories = useSelector((state) => state.category.category);
+
+  const handleGetBooks = async (i) => {
+    const subject = categories[i].search;
+    setIndex(0);
+    const startIndex = index;
+    // console.log(subject);
+    setActive(i);
     setShowLoadMoreBtn(true);
+    dispatch(getBooks({ subject, startIndex }));
   };
+
+  // const handleLoadMore = () => {
+  //   const subject = categories[i].search
+  //   setIndex(index + 6);
+  //   let startIndex = index;
+
+  //   // console.log(setIndex);
+  //   dispatch(getBooks({ subject, startIndex }));
+  // };
 
   return (
     <>
@@ -32,11 +40,11 @@ const Categories = () => {
         <ul className="categories">
           {categories.map((category, i) => (
             <li
-              onClick={() => handleClickCategory(i)}
+              onClick={() => handleGetBooks(i)}
               className={active === i ? 'active' : 'category'}
               key={uuidv4()}
             >
-              {category}
+              {category.category}
             </li>
           ))}
         </ul>
@@ -44,35 +52,13 @@ const Categories = () => {
       <main className="main">
         <section className="main__inner">
           <div className="main__cards">
-            {bookData?.map((item) => {
-              const img = item.volumeInfo.imageLinks?.thumbnail;
-              const author = [item.volumeInfo.authors];
-              const title = item.volumeInfo.title;
-              const description = item.volumeInfo.description
-                ?.slice(0, 94)
-                .concat('...');
-              const price = item.saleInfo?.retailPrice?.amount;
-              const currencyCode = item.saleInfo?.retailPrice?.currencyCode;
-              const stars = item.volumeInfo?.averageRating;
-              const reviews = item.volumeInfo?.ratingsCount;
-              return (
-                <Card
-                  key={uuidv4()}
-                  img={img}
-                  author={author}
-                  title={title}
-                  description={description}
-                  price={price}
-                  currencyCode={currencyCode}
-                  stars={stars}
-                  reviews={reviews}
-                />
-              );
-            })}
+            {books?.map((book) => (
+              <Card key={uuidv4()} book={book} />
+            ))}
           </div>
           {showLoadMoreBtn && (
             <div className="main__btn">
-              <Button text="Load more" />
+              {/* <Button onClick={() => handleLoadMore()} text="Load more" /> */}
             </div>
           )}
         </section>
