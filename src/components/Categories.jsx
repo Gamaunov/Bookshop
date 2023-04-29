@@ -4,36 +4,41 @@ import { useEffect, useState } from 'react';
 import Button from './Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBooks } from '../redux/bookSlice/bookSlice';
+import { setIndex } from '../redux/startIndex/startIndexSlice';
+import { setSearchValue } from '../redux/searchValueSlice/searchValueSlice';
 
 const Categories = () => {
   const [active, setActive] = useState(0);
-  const [index, setIndex] = useState(0);
+  // const [index, setIndex] = useState(0);
   const [showLoadMoreBtn, setShowLoadMoreBtn] = useState(false);
-
   const dispatch = useDispatch();
 
   const books = useSelector((state) => state.bookApi.books.items);
   const categories = useSelector((state) => state.category.category);
+  const index = useSelector((state) => state.startIndex.index);
+  const searchSubject = useSelector((state) => state.search.searchValue);
 
   const handleGetBooks = async (i) => {
-    const subject = categories[i].search;
-    setIndex(0);
+    if (i) dispatch(setSearchValue(categories[i].search));
+    const subject = i ? categories[i].search : searchSubject;
     const startIndex = index;
-    // console.log(subject);
     setActive(i);
     setShowLoadMoreBtn(true);
     dispatch(getBooks({ subject, startIndex }));
+
+    console.log(subject);
+    console.log(startIndex);
   };
 
+  const handleCategory = (i) => {
+    dispatch(setIndex(0));
+    handleGetBooks(i);
+  };
 
-  // const handleLoadMore = () => {
-  //   const subject = categories[i].search
-  //   setIndex(index + 6);
-  //   let startIndex = index;
-
-  //   // console.log(setIndex);
-  //   dispatch(getBooks({ subject, startIndex }));
-  // };
+  const handleIndex = () => {
+    dispatch(setIndex(index + 6));
+    handleGetBooks();
+  };
 
   return (
     <>
@@ -41,7 +46,7 @@ const Categories = () => {
         <ul className="categories">
           {categories.map((category, i) => (
             <li
-              onClick={() => handleGetBooks(i)}
+              onClick={() => handleCategory(i)}
               className={active === i ? 'active' : 'category'}
               key={uuidv4()}
             >
@@ -59,7 +64,7 @@ const Categories = () => {
           </div>
           {showLoadMoreBtn && (
             <div className="main__btn">
-              <Button text="Load more" />
+              <Button click={handleIndex} text="Load more" />
             </div>
           )}
         </section>
