@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import Card from './Card';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from './Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBooks } from '../redux/bookSlice/bookSlice';
@@ -24,6 +24,7 @@ const Categories = () => {
     setShowLoadMoreBtn(true);
     dispatch(getBooks({ subject, startIndex }));
   };
+
 
   // const handleLoadMore = () => {
   //   const subject = categories[i].search
@@ -58,7 +59,7 @@ const Categories = () => {
           </div>
           {showLoadMoreBtn && (
             <div className="main__btn">
-              {/* <Button onClick={() => handleLoadMore()} text="Load more" /> */}
+              <Button text="Load more" />
             </div>
           )}
         </section>

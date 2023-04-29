@@ -600,6 +600,7 @@ body {
   line-height: 20px;
   color: #1c2a39;
   position: relative;
+  cursor: pointer;
   &::before {
     content: url('../assets/img/circle.svg');
     position: absolute;
