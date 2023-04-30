@@ -8,6 +8,7 @@ const TopBooks = () => {
 
   return (
     <section className="top-books">
+      <h1 className='top-books__title'>Top 100 Books 2022</h1>
       <ol className="top-books__list">
         {topBooks?.map((book, i) => (
           <li key={book} top-books__item>
