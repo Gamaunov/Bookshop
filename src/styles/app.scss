@@ -538,10 +538,10 @@ body {
   &:hover {
     background-color: var(--color-primary);
   }
-  &:disabled {
-    background-color: var(--color-not-focus);
-    cursor: default;
-  }
+  // &:disabled {
+  //   background-color: var(--color-not-focus);
+  //   cursor: default;
+  // }
 }
 
 //aside

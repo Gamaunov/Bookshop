@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
 const initialState = {
   index: 0,
 };
@@ -13,7 +12,6 @@ export const startIndexSlice = createSlice({
       state.index = action.payload;
     },
   },
-
 });
 
 export const { setIndex } = startIndexSlice.actions;

@@ -9,8 +9,6 @@ import { setSearchValue } from '../redux/searchValueSlice/searchValueSlice';
 
 const Categories = () => {
   const [active, setActive] = useState(0);
-  // const [index, setIndex] = useState(0);
-  const [showLoadMoreBtn, setShowLoadMoreBtn] = useState(false);
   const dispatch = useDispatch();
 
   const books = useSelector((state) => state.bookApi.books.items);
@@ -18,27 +16,29 @@ const Categories = () => {
   const index = useSelector((state) => state.startIndex.index);
   const searchSubject = useSelector((state) => state.search.searchValue);
 
-  const handleGetBooks = async (i) => {
-    if (i) dispatch(setSearchValue(categories[i].search));
-    const subject = i ? categories[i].search : searchSubject;
-    const startIndex = index;
+  const handleCategory = (i) => {
+    const subject = categories[i].search;
+    const startIndex = 0;
     setActive(i);
-    setShowLoadMoreBtn(true);
     dispatch(getBooks({ subject, startIndex }));
-
+    dispatch(setSearchValue(categories[i].search));
+    dispatch(setIndex(0));
     console.log(subject);
     console.log(startIndex);
   };
 
-  const handleCategory = (i) => {
-    dispatch(setIndex(0));
-    handleGetBooks(i);
+  const handleIndex = () => {
+    const subject = searchSubject;
+    const startIndex = index + 6;
+    dispatch(getBooks({ subject, startIndex }));
+    dispatch(setIndex(index + 6));
+    console.log(subject);
+    console.log(startIndex);
   };
 
-  const handleIndex = () => {
-    dispatch(setIndex(index + 6));
-    handleGetBooks();
-  };
+  useEffect(() => {
+    handleCategory(0);
+  }, []);
 
   return (
     <>
@@ -62,11 +62,11 @@ const Categories = () => {
               <Card key={uuidv4()} book={book} />
             ))}
           </div>
-          {showLoadMoreBtn && (
-            <div className="main__btn">
-              <Button click={handleIndex} text="Load more" />
-            </div>
-          )}
+          <div className="main__btn">
+            <span onClick={() => handleIndex()}>
+              <Button onClick={() => handleIndex()} text="load more" />
+            </span>
+          </div>
         </section>
       </main>
     </>
