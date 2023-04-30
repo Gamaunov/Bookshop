@@ -1,14 +1,19 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
+import debounce from 'lodash.debounce';
 import user from '../assets/img/user.svg';
 import search from '../assets/img/search.svg';
 import shopBag from '../assets/img/shop-bag.svg';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getBooks } from '../redux/bookSlice/bookSlice';
+import { setSearchValue } from '../redux/searchValueSlice/searchValueSlice';
 
 const Header = () => {
+  const dispatch = useDispatch();
   const inputRef = useRef();
   const [value, setValue] = useState('');
-  const [activeInput, setActiveInput] = useState('header__input');
-  const [activeIcon, setActiveIcon] = useState('clearIcon');
+  const [activeInput, setActiveInput] = useState('hidden');
+  const [activeIcon, setActiveIcon] = useState('hidden');
 
   const onClear = () => {
     setValue('');
@@ -22,9 +27,23 @@ const Header = () => {
       ? setActiveIcon('hidden')
       : setActiveIcon('clearIcon');
   };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const updateSearchValue = useCallback(
+    debounce((str) => {
+      const subject = str;
+      const startIndex = 0;
+      dispatch(getBooks({ subject, startIndex }));
+      dispatch(setSearchValue(str));
+    }, 700),
+    [],
+  );
+
   const onChangeInput = (e) => {
     setValue(e.target.value);
+    updateSearchValue(e.target.value);
   };
+
   return (
     <div className="header">
       <Link to="/">
@@ -70,7 +89,7 @@ const Header = () => {
           </svg>
         )}
 
-        <Link to='/shopbag'>
+        <Link to="/shopbag">
           <div className="header-shopBag">
             <img className="header-icon" src={shopBag} alt="shopBag" />
             <span className="header-shopCount">3</span>
