@@ -37,8 +37,8 @@ const Categories = () => {
   };
 
   useEffect(() => {
-    handleCategory(0)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    handleCategory(0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

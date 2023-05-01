@@ -1,6 +1,8 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import cover from '../assets/img/book-not-found.jpg';
-import Button from './Button';
+import { addItem, removeItem } from '../redux/cartSlice/cartSlice';
+import { isThisNumber } from '../utils/isNumber';
 import Star from './Star';
 
 const Card = ({ book }) => {
@@ -12,13 +14,35 @@ const Card = ({ book }) => {
   const currencyCode = book.saleInfo?.retailPrice?.currencyCode;
   const stars = book.volumeInfo?.averageRating;
   const reviews = book.volumeInfo?.ratingsCount;
-
+  const id = book.id;
+  const thisPrice = isThisNumber(price) ? price : 0;
   const currencyCodeType =
     currencyCode !== undefined && currencyCode === 'RUB'
       ? '₽'
       : currencyCode === 'USD'
       ? '$'
       : currencyCode;
+
+  const dispatch = useDispatch();
+
+  const items = useSelector((state) => state.cart.items);
+
+  console.log(items?.item?.id, '432');
+
+  const onClickAdd = () => {
+    const item = {
+      id,
+      title,
+      thisPrice,
+      img,
+      currencyCodeType,
+    };
+    dispatch(addItem(item));
+  };
+
+  const onClickRemove = () => {
+    dispatch(removeItem(id));
+  };
 
   return (
     <div className="card">
@@ -36,7 +60,22 @@ const Card = ({ book }) => {
           {currencyCodeType}
           {price}
         </div>
-        <Button text="buy now" />
+        {!items.some((product) => product.id === id) ? (
+          <button onClick={onClickAdd} className="btn">
+            buy now
+          </button>
+        ) : (
+          <button onClick={onClickRemove} className="btn">
+            in the cart
+          </button>
+        )}
+        {/* {!items.id === id ? (
+          
+          <button onClick={onClickRemove} className='btn'>------</button>
+          ):(
+          <button onClick={onClickAdd} className='btn'>buy now</button>
+
+        )} */}
       </div>
     </div>
   );

@@ -3,9 +3,9 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import User from './pages/User';
-import ShopBag from './pages/ShopBag';
 import ChangeBook from './pages/ChangeBook';
 import TopBooks from './pages/TopBooks';
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shopbag" element={<ShopBag />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/user" element={<User />} />
         <Route path="/change-book" element={<ChangeBook />} />
         <Route path="/top-100" element={<TopBooks />} />

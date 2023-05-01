@@ -4,7 +4,7 @@ import user from '../assets/img/user.svg';
 import search from '../assets/img/search.svg';
 import shopBag from '../assets/img/shop-bag.svg';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getBooks } from '../redux/bookSlice/bookSlice';
 import { setSearchValue } from '../redux/searchValueSlice/searchValueSlice';
 
@@ -14,6 +14,7 @@ const Header = () => {
   const [value, setValue] = useState('');
   const [activeInput, setActiveInput] = useState('hidden');
   const [activeIcon, setActiveIcon] = useState('hidden');
+  const {items} = useSelector(state => state.cart)
 
   const onClear = () => {
     setValue('');
@@ -43,6 +44,11 @@ const Header = () => {
     setValue(e.target.value);
     updateSearchValue(e.target.value);
   };
+
+
+  // const { items, totalPrice } = useSelector((state) => state.cart);
+
+  // const totalCount = items.reduce((sum, item) => sum + item.count, 0);
 
   return (
     <div className="header">
@@ -89,10 +95,10 @@ const Header = () => {
           </svg>
         )}
 
-        <Link to="/shopbag">
+        <Link to="/cart">
           <div className="header-shopBag">
             <img className="header-icon" src={shopBag} alt="shopBag" />
-            <span className="header-shopCount">3</span>
+            <span className="header-shopCount">{items.length}</span>
           </div>
         </Link>
       </div>

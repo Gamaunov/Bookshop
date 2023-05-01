@@ -4,6 +4,7 @@ import categorySlice from './categorySlice/categorySlice';
 import topBookSlice from './topBookSlice/topBookSlice';
 import startIndexSlice from './startIndex/startIndexSlice';
 import searchValueSlice from './searchValueSlice/searchValueSlice';
+import cartSlice from './cartSlice/cartSlice';
 
 export default configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export default configureStore({
     topBook: topBookSlice,
     startIndex: startIndexSlice,
     search: searchValueSlice,
+    cart: cartSlice,
   },
 });
