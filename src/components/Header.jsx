@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBooks } from '../redux/bookSlice/bookSlice';
 import { setSearchValue } from '../redux/searchValueSlice/searchValueSlice';
+import Remove from './icons/Remove';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const Header = () => {
   const [value, setValue] = useState('');
   const [activeInput, setActiveInput] = useState('hidden');
   const [activeIcon, setActiveIcon] = useState('hidden');
-  const {items} = useSelector(state => state.cart)
+  const { items } = useSelector((state) => state.cart);
 
   const onClear = () => {
     setValue('');
@@ -44,7 +45,6 @@ const Header = () => {
     setValue(e.target.value);
     updateSearchValue(e.target.value);
   };
-
 
   // const { items, totalPrice } = useSelector((state) => state.cart);
 
