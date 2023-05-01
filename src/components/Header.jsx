@@ -20,6 +20,12 @@ const Header = () => {
     setValue('');
     inputRef.current?.focus();
   };
+
+  const handleInput = () => {
+    handleClassInput()
+    setValue('')
+  }
+
   const handleClassInput = () => {
     activeInput === 'header__input'
       ? setActiveInput('hidden')
@@ -28,6 +34,7 @@ const Header = () => {
       ? setActiveIcon('hidden')
       : setActiveIcon('clearIcon');
   };
+
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const updateSearchValue = useCallback(
@@ -64,10 +71,10 @@ const Header = () => {
             <img className="header-icon" src={user} alt="user" />
           </Link>
           <img
-            onClick={handleClassInput}
+            onClick={handleInput}
             className="header-icon"
             src={search}
-            alt="search"
+            alt="Input"
           />
           <input
             className={activeInput}
