@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const CartEmpty = () => {
   return (
-    <div>
-      <h2>
+    <div className='cartEmpty'>
+      <h1 className='cartEmpty__title'>
         Empty <span>😕</span>
-      </h2>
+      </h1>
       <Link to="/">
         <button className="btn">go back 😺</button>
       </Link>

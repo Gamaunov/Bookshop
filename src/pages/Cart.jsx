@@ -17,9 +17,9 @@ const Cart = () => {
     dispath(clearItems());
   };
 
-  // if (!totalCount) {
-  //   return <CartEmpty />;
-  // }
+  if (!totalCount) {
+    return <CartEmpty />;
+  }
 
   return (
     <section className="cart">

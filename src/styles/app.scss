@@ -124,7 +124,7 @@ body {
   &-shopCount {
     position: absolute;
     bottom: -5px;
-    right: 1px;
+    right: -4px;
     width: 12px;
     height: 12px;
     display: flex;
@@ -137,6 +137,7 @@ body {
     background-color: #ff353a;
     border-radius: 50%;
     cursor: pointer;
+    padding: 7px;
   }
 }
 
@@ -737,10 +738,7 @@ body {
     max-width: 1200px;
     margin-bottom: 20px;
     margin-right: 100px;
-    // margin-left: 100px;
-    @media (max-width: 1200px) {
-      flex-wrap: wrap;
-    }
+    flex-wrap: wrap;
     @media (max-width: 580px) {
       margin-right: 0;
     }
@@ -751,10 +749,6 @@ body {
     align-items: center;
     justify-content: center;
     column-gap: 20px;
-    // padding: 10px;
-    // border: 1px dashed #4c3db2;
-    // border-top: 1px solid #4c3db2;
-    // padding-top: 5px;
   }
   &__total-count {
   }
@@ -786,9 +780,6 @@ body {
   border: 1px solid #4c3db2;
   background-color: var(--color-secondary);
   min-height: 160px;
-  // margin: 10px 10px 10px 100px;
-  // margin-left: 100px;
-  // margin-bottom: 20px;
   margin: 10px 10px 10px 100px;
   @media (max-width: 580px) {
     margin: 10px 10px 10px 10px;
@@ -843,4 +834,14 @@ body {
       color: var(--color-btn);
     }
   }
+}
+
+//cartEmpty
+.cartEmpty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 25px;
+  height: 60vh;
 }
