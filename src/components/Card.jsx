@@ -27,8 +27,6 @@ const Card = ({ book }) => {
 
   const items = useSelector((state) => state.cart.items);
 
-  console.log(items?.item?.id, '432');
-
   const onClickAdd = () => {
     const item = {
       id,
@@ -69,13 +67,6 @@ const Card = ({ book }) => {
             in the cart
           </button>
         )}
-        {/* {!items.id === id ? (
-          
-          <button onClick={onClickRemove} className='btn'>------</button>
-          ):(
-          <button onClick={onClickAdd} className='btn'>buy now</button>
-
-        )} */}
       </div>
     </div>
   );

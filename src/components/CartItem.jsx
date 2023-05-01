@@ -4,7 +4,6 @@ import { addItem, removeItem, minusItem } from '../redux/cartSlice/cartSlice';
 import Gift from './icons/Gift';
 import Minus from './icons/Minus';
 import Plus from './icons/Plus';
-import Remove from './icons/Remove';
 import RemoveItem from './icons/RemoveItem';
 
 const CartItem = ({ id, title, thisPrice, count, img, currencyCodeType }) => {
@@ -22,6 +21,7 @@ const CartItem = ({ id, title, thisPrice, count, img, currencyCodeType }) => {
     dispatch(removeItem(id));
   };
 
+
   const itemCount = (thisPrice * count).toFixed(2);
   return (
     <div className="cartItem">
@@ -36,7 +36,11 @@ const CartItem = ({ id, title, thisPrice, count, img, currencyCodeType }) => {
           <Minus />
         </button>
         <b>{count}</b>
-        <button className="cartItem__btn" onClick={onClickPlus}>
+        <button
+          disabled={thisPrice === 0}
+          className="cartItem__btn"
+          onClick={onClickPlus}
+        >
           <Plus />
         </button>
       </div>

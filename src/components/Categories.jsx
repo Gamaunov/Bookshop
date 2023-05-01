@@ -23,8 +23,6 @@ const Categories = () => {
     dispatch(getBooks({ subject, startIndex }));
     dispatch(setSearchValue(categories[i].search));
     dispatch(setIndex(0));
-    console.log(subject);
-    console.log(startIndex);
   };
 
   const handleIndex = () => {
@@ -32,8 +30,6 @@ const Categories = () => {
     const startIndex = index + 6;
     dispatch(getBooks({ subject, startIndex }));
     dispatch(setIndex(index + 6));
-    console.log(subject);
-    console.log(startIndex);
   };
 
   useEffect(() => {

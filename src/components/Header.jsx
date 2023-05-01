@@ -1,12 +1,11 @@
 import React, { useCallback, useRef, useState } from 'react';
 import debounce from 'lodash.debounce';
-import user from '../assets/img/user.svg';
-import search from '../assets/img/search.svg';
-import shopBag from '../assets/img/shop-bag.svg';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBooks } from '../redux/bookSlice/bookSlice';
 import { setSearchValue } from '../redux/searchValueSlice/searchValueSlice';
+import User from './icons/User';
+import ShopBag from './icons/ShopBag';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -22,9 +21,9 @@ const Header = () => {
   };
 
   const handleInput = () => {
-    handleClassInput()
-    setValue('')
-  }
+    handleClassInput();
+    setValue('');
+  };
 
   const handleClassInput = () => {
     activeInput === 'header__input'
@@ -34,7 +33,6 @@ const Header = () => {
       ? setActiveIcon('hidden')
       : setActiveIcon('clearIcon');
   };
-
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const updateSearchValue = useCallback(
@@ -53,7 +51,7 @@ const Header = () => {
   };
 
   return (
-    <header className='header__fixed'>
+    <header className="header__fixed">
       <div className="header">
         <Link to="/">
           <h1 className="header-logo">Bookshop</h1>
@@ -68,14 +66,24 @@ const Header = () => {
         </nav>
         <div className="header-userBar">
           <Link to="/user">
-            <img className="header-icon" src={user} alt="user" />
+            <User className="header-icon" />
           </Link>
-          <img
+          <svg
             onClick={handleInput}
             className="header-icon"
-            src={search}
-            alt="Input"
-          />
+            width="15"
+            height="15"
+            viewBox="0 0 15 15"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M12 6.5C12 9.53757 9.53757 12 6.5 12C3.46243 12 1 9.53757 1 6.5C1 3.46243 3.46243 1 6.5 1C9.53757 1 12 3.46243 12 6.5ZM10.8845 11.2986C9.72859 12.3554 8.18957 13 6.5 13C2.91015 13 0 10.0899 0 6.5C0 2.91015 2.91015 0 6.5 0C10.0899 0 13 2.91015 13 6.5C13 8.04017 12.4643 9.45523 11.5691 10.569L15 13.9999L14.2929 14.707L10.8845 11.2986Z"
+              fill="#1C2A39"
+            />
+          </svg>
           <input
             className={activeInput}
             ref={inputRef}
@@ -99,7 +107,7 @@ const Header = () => {
           )}
           <Link to="/cart">
             <div className="header-shopBag">
-              <img className="header-icon" src={shopBag} alt="shopBag" />
+              <ShopBag className="header-icon" />
               <span className="header-shopCount">{items.length}</span>
             </div>
           </Link>
