@@ -9,17 +9,19 @@ import Cart from './pages/Cart';
 
 function App() {
   return (
-    <div className="container">
+    <>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/user" element={<User />} />
-        <Route path="/change-book" element={<ChangeBook />} />
-        <Route path="/top-100" element={<TopBooks />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/user" element={<User />} />
+          <Route path="/change-book" element={<ChangeBook />} />
+          <Route path="/top-100" element={<TopBooks />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
