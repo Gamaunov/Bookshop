@@ -8,13 +8,8 @@ const Books = () => {
       <h1 className="books__title">All You Need</h1>
       <div className="books__inner">
         {books.map((book, i) => (
-          <div className="books__card">
-            <img
-              className="books__img"
-              key={book.id}
-              src={book.img}
-              alt={book.title}
-            />
+          <div key={book.id} className="books__card">
+            <img className="books__img" src={book.img} alt={book.title} />
             <h3 className="books__card-title"> {book.title} </h3>
           </div>
         ))}
