@@ -902,9 +902,8 @@ body {
   }
 }
 
-
 //audiobooks
-.audiobooks{
+.audiobooks {
   background-image: url(../assets/img/audiobooks/audiobooks.jpg);
   background-size: cover;
   height: 100vh;
@@ -912,15 +911,39 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  &__inner{
+  &__inner {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80vh;
     margin-top: 100px;
   }
-  &__btn{
-    background-color: var( --color-primary);
+  &__btn {
+    background-color: var(--color-primary);
     margin-bottom: 50px;
+  }
+}
+
+//gifts
+.gifts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 80%;
+  gap: 20px;
+  margin-top: 100px;
+  &__text {
+    // display: flex;
+    // align-items: flex-start;
+  }
+  &__svg {
+    svg {
+      color: var(--color-secondary);
+      width: 8px;
+      height: 8px;
+      margin-left: 5px;
+    }
   }
 }

@@ -64,7 +64,7 @@ const Header = () => {
             <li className="header-link">
               <Link to="/audiobooks">audiobooks</Link>
             </li>
-            <li className="header-link">Stationery & gifts</li>
+            <li className="header-link"><Link to="/gifts">Stationery & gifts</Link></li>
             <li className="header-link">blog</li>
           </ul>
         </nav>
