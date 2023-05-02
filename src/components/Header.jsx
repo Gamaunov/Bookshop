@@ -65,7 +65,7 @@ const Header = () => {
               <Link to="/audiobooks">audiobooks</Link>
             </li>
             <li className="header-link"><Link to="/gifts">Stationery & gifts</Link></li>
-            <li className="header-link">blog</li>
+            <li className="header-link"><Link to="/blog">blog</Link></li>
           </ul>
         </nav>
         <div className="header-userBar">
@@ -94,7 +94,7 @@ const Header = () => {
             value={value}
             onChange={onChangeInput}
             type="text"
-            placeholder="Ищу работу..."
+            placeholder="Key words..."
           />
           {value && (
             <svg

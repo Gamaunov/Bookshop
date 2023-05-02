@@ -9,6 +9,7 @@ import Cart from './pages/Cart';
 import Books from './pages/Books';
 import Audiobooks from './pages/Audiobooks';
 import Gifts from './pages/Gifts';
+import Blog from './pages/Blog';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/books" element={<Books />} />
           <Route path="/audiobooks" element={<Audiobooks />} />
           <Route path="/gifts" element={<Gifts />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/user" element={<User />} />
           <Route path="/change-book" element={<ChangeBook />} />
