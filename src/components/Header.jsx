@@ -58,8 +58,12 @@ const Header = () => {
         </Link>
         <nav className="header-nav">
           <ul className="header-navList">
-            <li className="header-link">books</li>
-            <li className="header-link">audiobooks</li>
+            <li className="header-link">
+              <Link to="/books">books</Link>
+            </li>
+            <li className="header-link">
+              <Link to="/audiobooks">audiobooks</Link>
+            </li>
             <li className="header-link">Stationery & gifts</li>
             <li className="header-link">blog</li>
           </ul>

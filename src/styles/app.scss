@@ -848,3 +848,56 @@ body {
   height: 60vh;
   margin-top: 100px;
 }
+
+//Books
+.books {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  font-family: 'OpenSans', sans-serif;
+  font-size: 14px;
+  margin: 100px 0 100px;
+  @media (max-width: 768px) {
+    margin: 135px 0 100px;
+  }
+  @media (max-width: 580px) {
+    gap: 20px;
+  }
+  &__title {
+    font-size: 24px;
+    &::first-letter {
+      color: red;
+    }
+  }
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(4, 220px);
+    grid-template-rows: repeat(2, 350px);
+    grid-gap: 30px;
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(3, 220px);
+    }
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 220px);
+    }
+    @media (max-width: 580px) {
+      grid-template-columns: repeat(1, 220px);
+    }
+  }
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  &__img {
+    width: 220px;
+    height: 300px;
+    object-fit: cover;
+  }
+  &__card-title {
+    text-align: center;
+    font-weight: 500;
+  }
+}
