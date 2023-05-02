@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getBooks } from '../redux/bookSlice/bookSlice';
 import { setIndex } from '../redux/startIndex/startIndexSlice';
 import { setSearchValue } from '../redux/searchValueSlice/searchValueSlice';
+import CardSkeleton from './CardSkeleton';
 
 const Categories = () => {
   const [active, setActive] = useState(0);
@@ -36,6 +37,10 @@ const Categories = () => {
     handleCategory(0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  const { status } = useSelector((state) => state.bookApi);
+  const skeletons = [...new Array(6)].map((_) => (
+    <CardSkeleton key={uuidv4()} />
+  ));
 
   return (
     <>
@@ -55,9 +60,9 @@ const Categories = () => {
       <main className="main">
         <section className="main__inner">
           <div className="main__cards">
-            {books?.map((book) => (
-              <Card key={uuidv4()} book={book} />
-            ))}
+            {status === 'loading'
+              ? skeletons
+              : books?.map((book) => <Card key={uuidv4()} book={book} />)}
           </div>
           <div className="main__btn">
             <span onClick={() => handleIndex()}>

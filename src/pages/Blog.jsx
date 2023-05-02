@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 
 const Blog = () => {
-  const [text, count] = useTypewriter({
+  const [text] = useTypewriter({
     words: ['Programming', 'React'],
     loop: false,
     delaySpeed: 3000,
