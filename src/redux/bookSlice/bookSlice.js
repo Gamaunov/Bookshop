@@ -19,26 +19,21 @@ export const getBooks = createAsyncThunk('book/getBooks', async (params) => {
 export const bookSlice = createSlice({
   name: 'book',
   initialState,
-  reducers: {
-    setBook: (state, action) => {
-      state.books = action.payload;
-    },
-  },
-  extraReducers: {
-    [getBooks.pending]: (state) => {
-      state.status = 'loading';
-      // state.books = [];
-    },
-    [getBooks.fulfilled]: (state, action) => {
-      state.books = action.payload;
-      state.status = 'success';
-    },
-    [getBooks.rejected]: (state) => {
-      state.status = 'error';
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getBooks.pending, (state) => {
+        state.status = 'loading';
+        state.books = [];
+      })
+      .addCase(getBooks.fulfilled, (state, action) => {
+        state.books = action.payload;
+        state.status = 'success';
+      })
+      .addCase(getBooks.rejected, (state, action) => {
+        state.books = action.payload;
+        state.status = 'success';
+      });
   },
 });
-
-export const { setBook } = bookSlice.actions;
 
 export default bookSlice.reducer;
