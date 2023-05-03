@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const Slider = () => {
   return (
     <div className="main-slider">
-      <Link to='/change-book'>
+      <Link to="/change-book">
         <div className="slider-link slider-link--top">
           <p>Change old book on new</p>
           <span>
@@ -17,7 +17,7 @@ const Slider = () => {
           </span>
         </div>
       </Link>
-      <Link to='/top-100' >
+      <Link to="/top-100">
         <div className="slider-link slider-link--bottom">
           <p>top 100 books 2022</p>
           <span>
@@ -27,17 +27,16 @@ const Slider = () => {
       </Link>
       <Swiper
         modules={[Autoplay, Navigation, Pagination, A11y, EffectCube]}
-        autoplay={{ delay: 5000000 }} //todo 5000
+        autoplay={{ delay: 5000, transition: 5000 }}
         spaceBetween={50}
         slidesPerView={1}
+        speed={3000}
         navigation
         pagination={{ clickable: true }}
         effect={'cube'}
         cubeEffect={{
           shadow: false,
-          slideShadows: true,
-          shadowOffset: 20,
-          shadowScale: 0.94,
+          slideShadows: false,
         }}
       >
         <SwiperSlide>
