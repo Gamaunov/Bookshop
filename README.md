@@ -1,5 +1,5 @@
 
-# BookShop 
+# Посетить <a href='https://bookshop-rosy.vercel.app/' targrt='_blanc'>BookShop<a/>
 <img src="https://img.shields.io/badge/React-2C3454?style=for-the-badge&logo=React&logoColor=61DAFB"/><img src="https://img.shields.io/badge/Redux-2C3454?style=for-the-badge&logo=redux&logoColor=764ABC"/><img src="https://img.shields.io/badge/Router-2C3454?style=for-the-badge&logo=reactrouter&logoColor=CA4245"/>
 
 
