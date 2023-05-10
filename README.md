@@ -1,13 +1,6 @@
 # BookShop
 
-    <a href='https://react.dev/blog/2023/03/16/introducing-react-dev' targrt='_blanc'>
-    <a/>
-
-<img src="https://img.shields.io/badge/React-2C3454?style=for-the-badge&logo=React&logoColor=61DAFB"/>
-    <a href='https://react.dev/blog/2023/03/16/introducing-react-dev' targrt='_blanc'><img src="https://img.shields.io/badge/React-2C3454?style=for-the-badge&logo=React&logoColor=61DAFB"/><a/>
-
-     <a href='https://redux-toolkit.js.org/' targrt='_blanc'><img src="https://img.shields.io/badge/Redux-2C3454?style=for-the-badge&logo=redux&logoColor=764ABC"/><a/>
-      <a href='https://reactrouter.com/en/main' targrt='_blanc'><img src="https://img.shields.io/badge/Router-2C3454?style=for-the-badge&logo=reactrouter&logoColor=CA4245"/><a/>
+<img src="https://img.shields.io/badge/React-2C3454?style=for-the-badge&logo=React&logoColor=61DAFB"/><img src="https://img.shields.io/badge/Redux-2C3454?style=for-the-badge&logo=redux&logoColor=764ABC"/><img src="https://img.shields.io/badge/Router-2C3454?style=for-the-badge&logo=reactrouter&logoColor=CA4245"/>
 
 ### В приложении используется переменная окружения которая записана в константу `REACT_APP_KEY` в файле `.env`
 
