@@ -10,7 +10,7 @@
 
   <img src="https://github.com/Gamaunov/Bookshop/blob/main/src/assets/img/1.png"/>
 
-Технологии
+  <h3>Технологии:</h3>
 
 <ul>
   <li>
