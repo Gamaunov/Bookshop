@@ -1,4 +1,4 @@
-# BookShop
+# Посетить <a href='https://currency-converter-i51h2t3ky-gamaunov.vercel.app/' target="_blank">BookShop<a/>
 
 ### В приложении используется переменная окружения которая записана в константу `REACT_APP_KEY` в файле `.env`
 
