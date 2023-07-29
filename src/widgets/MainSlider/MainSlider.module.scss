@@ -1,0 +1,64 @@
+.MainSlider{
+  position: relative;
+}
+.topLink,
+.bottomLink{
+  @media (max-width: 560px) {
+    display: none;
+  }
+}
+
+
+.topLink{
+  top: 80px;
+  right: 10px;
+  @media (max-width: 1280px) {
+    right: 20px;
+  }
+  @media (max-width: 1040px) {
+    top: 40px;
+  }
+}
+
+.topLinkInner,
+.bottomLinkInner{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-size: 18px;
+  text-transform: uppercase;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.topLinkInner{
+  padding: 102px 20px 36px 20px;
+  background-color: var(--primary);
+  @media (max-width: 1040px) {
+    padding: 80px 20px 20px 20px;
+  }
+}
+
+.bottomLink{
+  bottom: 160px;
+  right: -30px;
+  @media (max-width: 1340px) {
+    bottom: 80px;
+  }
+  @media (max-width: 1280px) {
+    right: 0;
+  }
+  @media (max-width: 1040px) {
+    bottom: 30px;
+  }
+
+}
+
+.bottomLinkInner{
+  padding: 149px 47px 20px 21px;
+  background-color: var(--secondary);
+  @media (max-width: 1040px) {
+    padding: 80px 20px 20px 20px;
+  }
+}
