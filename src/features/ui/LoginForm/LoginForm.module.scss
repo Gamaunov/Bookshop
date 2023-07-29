@@ -1,0 +1,68 @@
+.loginForm{
+  position: absolute;
+  top: 40px;
+  right: 5px;
+  width: 241px;
+  height: 312px;
+  z-index: 5;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-dark);
+  font-size: 12px;
+  background-color: var(--white);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+  @media (max-width: 768px) {
+    right: -50%;
+  }
+}
+
+.loginFormTitle{
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.inputInnerEmail{
+  margin-bottom: 10px;
+}
+
+.inputLabel{
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.input{
+  width: 176px;
+  height: 35px;
+  padding: 10px;
+  color: var(--btn);
+  font-size: 12px;
+  outline: none;
+  &:focus{
+    border-color: var(--btn);
+  }
+}
+
+.inputValidationInfo{
+  text-align: center;
+  color: var(--danger);
+  font-size: 8px;
+  margin-top: 10px;
+}
+
+.showInputError{
+  visibility: hidden;
+}
+
+.loginBtn{
+  width: 176px;
+  height: 32px;
+  background-color:var(--btn);
+  color: var(--white);
+  text-transform: uppercase;
+  margin-top: 45px;
+}
+
+
