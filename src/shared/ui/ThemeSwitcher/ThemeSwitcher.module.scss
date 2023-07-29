@@ -1,0 +1,15 @@
+.switchBtn {
+  background: transparent;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  [data-theme="dark"]{
+    color:  var(--bg);
+  }
+  @media (min-width: 1280px) {
+    width: 30px;
+    height: 30px;
+  }
+}

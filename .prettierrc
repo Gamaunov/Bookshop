@@ -1,0 +1,20 @@
+{
+	"trailingComma": "es5",
+	"tabWidth": 2,
+	"useTabs": true,
+	"semi": true,
+	"singleQuote": true,
+	"plugins": ["@trivago/prettier-plugin-sort-imports"],
+	"importOrder": [
+		"next*",
+		"react*",
+		"app/(.*)$",
+		"features/(.*)$",
+		"pages/(.*)$",
+		"widgets/(.*)$",
+		"shared/(.*)$",
+		"(.scss)$"
+	],
+	"importOrderSeparation": false,
+	"importOrderSortSpecifiers": true
+}

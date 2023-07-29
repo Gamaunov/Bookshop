@@ -1,35 +1,34 @@
-# Посетить <a href='https://bookshop-rosy.vercel.app/' target="_blank">BookShop<a/>
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-### В приложении используется переменная окружения которая записана в константу `REACT_APP_KEY` в файле `.env`
+## Getting Started
 
-### Получить бесплатный ключ Вы можете здесь: <a href='https://console.cloud.google.com/welcome?project=teak-mix-384908' targrt='_blanc'> Google Books API<a/>
+First, run the development server:
 
-#### Приложение ищет книги по указанной категории в Aside или с помощью input, если API не возвращает стоимость книги в корзине мы сообщаем клиенту что это подарок (нельзя получить больше 1 книги) информацию о добавленных кнгигах сохраняем с помощью <a href='https://redux-toolkit.js.org/usage/usage-guide' targrt='_blanc'>redux-persis<a/>
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
 
-  <img src="https://github.com/Gamaunov/Bookshop/blob/main/src/assets/img/1.png"/>
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-  <h3>Технологии:</h3>
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-<ul>
-  <li>
-    <a href='https://react.dev/blog/2023/03/16/introducing-react-dev' targrt='_blanc'>ReactJS 18<a/>
-  </li>
-  <li>
-   <a href='https://redux-toolkit.js.org/' targrt='_blanc'>Redux Toolkit<a/>
-  </li>
-  <li>
-    <a href='https://reactrouter.com/en/main' targrt='_blanc'>React Router<a/>
-  </li>
-  <li>
-    <a href='https://axios-http.com/ru/docs/intro' targrt='_blanc'>Axios<a/>
-  </li>
-  <li>
-    <a href='https://lodash.com/docs/#debounce' targrt='_blanc'>lodash.debounce<a/>
-  </li>
-  <li>
-    <a href='https://skeletonreact.com/' targrt='_blanc'>React Content Loader<a/>
-  </li>
-  <li>
-      <a href='https://github.com/rt2zz/redux-persist' targrt='_blanc'> Redux Persist<a/>
-  </li>
-</ul>
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
