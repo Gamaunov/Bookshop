@@ -1,4 +1,5 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { signIn, signOut, useSession } from 'next-auth/react';
+import { ChangeEvent, useState } from 'react';
 import {
 	emailRegex,
 	emailRegexPattern,
@@ -32,19 +33,21 @@ export const LoginForm = () => {
 	const isPasswordValid = password.length >= 6;
 	const shouldShowPasswordError = passwordTouched && !isPasswordValid;
 
-	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-
+	const handleSubmit = () => {
 		if (email.trim() === '' || password.trim() === '') {
 			console.log('Submit form cannot be empty', email, password);
 			return;
 		}
-
 		console.log('Submit form:', email, password);
+
+		session && session.user ? signOut() : signIn();
 	};
 
+	const { data: session } = useSession();
+	console.log(session?.user);
+
 	return (
-		<form className={cls.loginForm} onSubmit={handleSubmit}>
+		<form className={cls.loginForm}>
 			<h4 className={cls.loginFormTitle}>Log in</h4>
 			<div className={classNames(cls.inputInner, [cls.inputInnerEmail])}>
 				<p className={cls.inputLabel}>Email</p>
@@ -82,9 +85,15 @@ export const LoginForm = () => {
 					Input must be 6 characters long
 				</p>
 			</div>
-			<Button type="submit" className={cls.loginBtn}>
-				Log in
-			</Button>
+			{session && session.user ? (
+				<Button className={cls.loginBtn} onClick={handleSubmit}>
+					Sign out
+				</Button>
+			) : (
+				<Button className={cls.loginBtn} onClick={handleSubmit}>
+					Log in
+				</Button>
+			)}
 		</form>
 	);
 };

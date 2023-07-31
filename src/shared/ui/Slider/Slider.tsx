@@ -27,7 +27,7 @@ interface HeaderProps {
 
 const Slider: FC = ({ className }: HeaderProps) => {
 	const [currentSlide, setCurrentSlide] = useState(0);
-	const [autoplay, setAutoplay] = useState(true);
+	const [autoplay, setAutoplay] = useState(false);
 
 	useEffect(() => {
 		const interval = setInterval(() => {

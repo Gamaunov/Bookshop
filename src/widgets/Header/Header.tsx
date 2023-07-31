@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { AiOutlineUser } from 'react-icons/ai';
 import { LiaLockSolid } from 'react-icons/lia';
 import { LoginForm } from '@/features/ui/LoginForm/LoginForm';
+import { AppRoutes } from '@/shared/config/routes/appRoutes';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button/Button';
 import ThemeSwitcher from '@/shared/ui/ThemeSwitcher/ThemeSwitcher';
@@ -23,22 +24,22 @@ export const Header = ({ className }: HeaderProps) => {
 	return (
 		<header className={classNames(cls.Header, [className])}>
 			<h1 className={cls.logo}>
-				<Link href="/">Bookshop</Link>
+				<Link href={AppRoutes.HOME}>Bookshop</Link>
 			</h1>
 
 			<nav className={cls.nav}>
 				<ul className={cls.navItems}>
 					<li className={cls.navItem}>
-						<Link href="/">books</Link>
+						<Link href={AppRoutes.BOOKS}>books</Link>
 					</li>
 					<li className={cls.navItem}>
-						<Link href="/">audiobooks</Link>
+						<Link href={AppRoutes.AUDIOBOOKS}>audiobooks</Link>
 					</li>
 					<li className={cls.navItem}>
-						<Link href="/">Stationery & gifts</Link>
+						<Link href={AppRoutes.STATIONERY_GIFTS}>Stationery & gifts</Link>
 					</li>
 					<li className={cls.navItem}>
-						<Link href="/">blog</Link>
+						<Link href={AppRoutes.BLOG}>blog</Link>
 					</li>
 				</ul>
 			</nav>
@@ -47,7 +48,9 @@ export const Header = ({ className }: HeaderProps) => {
 				<Button className={cls.modalBtn} onClick={handleLogin}>
 					<AiOutlineUser className={cls.menuIcon} />
 				</Button>
-				<LiaLockSolid className={cls.menuIcon} />
+				<Link href={AppRoutes.CART}>
+					<LiaLockSolid className={cls.menuIcon} />
+				</Link>
 				<ThemeSwitcher />
 				{showLoginForm && <LoginForm />}
 			</menu>

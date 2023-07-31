@@ -3,7 +3,6 @@ import { Montserrat } from 'next/font/google';
 import { ReactNode } from 'react';
 import Providers from '@/app/providers/providers';
 import { Header } from '@/widgets/Header/Header';
-import { MainSlider } from '@/widgets/MainSlider/MainSlider';
 import './styles/global.scss';
 
 const font = Montserrat({
@@ -20,13 +19,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html lang="en">
 			<body className={font.className}>
-				<div id="modal-root"></div>
 				<Providers>
 					<Header />
-					<main className="main">
-						<MainSlider />
-						{children}
-					</main>
+					{children}
 				</Providers>
 			</body>
 		</html>

@@ -1,0 +1,29 @@
+.NotFoundPage{
+  max-width: 768px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  background-color: var( --aside-dark);
+  border-radius: 10px;
+  font-size: 32px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    font-size: 24px;
+  }
+  @media (max-width: 560px) {
+    flex-direction: column;
+    font-size: 16px;
+  }
+  @media (max-width: 460px) {
+    flex-direction: column;
+    font-size: 12px;
+  }
+}
+
+.status{
+  color: var(--accent);
+}
+

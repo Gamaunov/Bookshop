@@ -1,0 +1,77 @@
+.Profile,
+.info,
+.about {
+	display: flex;
+}
+
+.info,
+.about {
+	flex-direction: column;
+}
+
+.Profile {
+	max-width: 1280px;
+	margin: 85px auto 20px;
+	padding: 0 5px;
+	align-items: flex-start;
+	justify-content: space-between;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.infoInner {
+	display: flex;
+	gap: 17px;
+}
+
+.title {
+	color: var(--text-dark);
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.info {
+	margin-top: 40px;
+	color: var(--black);
+}
+
+.labelName {
+	margin-bottom: 10px;
+}
+
+.label {
+	font-size: 24px;
+	margin-bottom: 25px;
+}
+
+.btn {
+	text-transform: uppercase;
+	color: var(--btn);
+	border: 1px solid var(--btn);
+	padding: 18px 60px;
+	background: transparent;
+	margin-top: 15px;
+}
+
+.about {
+	height: 345px;
+	background-color: var(--about-bg);
+	color: var(--black);
+	padding: 17px 30px;
+}
+
+.aboutTitle {
+	text-align: center;
+	margin-bottom: 30px;
+}
+.aboutDesc {
+	max-width: 296px;
+	color: var(--text-gray);
+	text-transform: initial;
+}
+
+[data-theme='dark'] .title,
+[data-theme='dark'] .btn,
+[data-theme='dark'] .info{
+	color: var(--text-white);
+}
