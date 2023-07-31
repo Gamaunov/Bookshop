@@ -7,7 +7,7 @@ import './styles/global.scss';
 
 const font = Montserrat({
 	weight: ['400', '500', '700', '900'],
-	subsets: ['latin', 'cyrillic'],
+	subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
