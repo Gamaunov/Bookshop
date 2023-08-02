@@ -1,0 +1,21 @@
+.rating{
+  display: flex;
+  align-items: center;
+  column-gap: 2px;
+}
+
+.review{
+  margin-left: 10px;
+}
+
+.starHalf {
+  color: var(--star-fill);
+}
+
+.starEmpty {
+  color: var(--star-empty);
+}
+
+.starFill {
+  color: var(--star-fill);
+}

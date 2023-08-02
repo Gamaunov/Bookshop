@@ -7,6 +7,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	disabled?: boolean;
 	children?: ReactNode;
 	type?: 'submit' | 'reset' | 'button';
+	appButton?: boolean;
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -17,13 +18,17 @@ export const Button = memo((props: ButtonProps) => {
 		children,
 		disabled,
 		type = 'button',
+		appButton,
 		...otherProps
 	} = props;
 
 	return (
 		<button
 			type={type}
-			className={classNames(cls.Button, [className])}
+			className={classNames(cls.Button, [
+				className,
+				appButton ? cls.appButton : '',
+			])}
 			disabled={disabled}
 			{...otherProps}
 		>

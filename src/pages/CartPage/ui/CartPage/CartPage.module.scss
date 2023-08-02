@@ -1,0 +1,66 @@
+
+.CartPage {
+	max-width: 1280px;
+	margin: 0 auto 20px;
+	padding: 0 20px;
+	@media (max-width: 768px) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+.title {
+	font-size: 24px;
+	margin-bottom: 20px;
+	@media (max-width: 360px) {
+		font-size: 16px;
+	}
+}
+
+.labels {
+	display: grid;
+	grid-template-columns:  505px 405px 245px 190px;
+	margin-bottom: 25px;
+	@media (max-width: 1280px) {
+		display: flex;
+		justify-content: space-between;
+	}
+	@media (max-width: 768px) {
+		display: none;
+	}
+}
+
+.label{
+
+
+}
+
+.cartItems {
+	display: flex;
+	flex-direction: column;
+	gap: 65px;
+	margin-bottom: 100px;
+	@media (max-width: 768px) {
+		margin-bottom: 50px;
+
+	}
+}
+
+.totalPrice{
+	font-size: 24px;
+	@media (max-width: 360px) {
+		font-size: 16px;
+	}
+}
+.btn{
+}
+
+.bottom{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	@media (max-width: 768px) {
+		align-items: center;
+	}
+}
