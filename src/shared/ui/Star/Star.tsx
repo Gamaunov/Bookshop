@@ -14,11 +14,11 @@ const Star = ({ stars, reviews }: StarProps) => {
 		return (
 			<span key={i}>
 				{stars >= i + 1 ? (
-					<StarFill />
+					<StarFill className={cls.starFill} />
 				) : stars >= number ? (
-					<StarHalf />
+					<StarHalf className={cls.starFill} />
 				) : (
-					<StarEmpty />
+					<StarEmpty className={cls.starEmpty} />
 				)}
 			</span>
 		);

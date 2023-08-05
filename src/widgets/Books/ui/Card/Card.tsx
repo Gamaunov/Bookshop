@@ -1,35 +1,93 @@
 import Image from 'next/image';
+import { FC } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '@/app/store/store';
+import {
+	CartItemType,
+	addItem,
+	removeItem,
+} from '@/pages/CartPage/model/cartSlice';
+import { Book } from '@/widgets/Books/model/types/insex';
 import CoverImage from '../../../../shared/assets/book-not-found.jpg';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button/Button';
 import Star from '@/shared/ui/Star/Star';
+import { isThisNumber } from '@/shared/utils/isThisNumber';
 import cls from './Card.module.scss';
 
-interface CardProps {
-	className?: string;
-}
+export const Card: FC<{ book: Book }> = ({ book }) => {
+	const dispatch: AppDispatch = useDispatch();
+	const items = useSelector((state: RootState) => state.cartSlice.items);
 
-export const Card = ({ className }: CardProps) => {
+	const img = book.volumeInfo?.imageLinks?.thumbnail || CoverImage;
+	const author = book.volumeInfo?.authors
+		? book.volumeInfo?.authors.join(', ')
+		: '';
+	const title = book?.volumeInfo?.title;
+	const description =
+		book.volumeInfo?.description?.slice(0, 94).concat('...') || '';
+	const price = book.saleInfo?.retailPrice?.amount;
+	const currencyCode = book.saleInfo?.retailPrice?.currencyCode;
+	const stars = book.volumeInfo?.averageRating || 0;
+	const reviews = book.volumeInfo?.ratingsCount || 0;
+	const id = book.id;
+	const thisPrice = isThisNumber(price) ? price : 0;
+	const currencyCodeType =
+		currencyCode !== undefined && currencyCode === 'RUB'
+			? '₽'
+			: currencyCode === 'USD'
+			? '$'
+			: currencyCode || '';
+
+	const onClickRemove = () => {
+		dispatch(removeItem(id));
+	};
+
+	const onClickAdd = () => {
+		const item: CartItemType = {
+			id,
+			title,
+			thisPrice: thisPrice || 0,
+			img,
+			currencyCodeType,
+			count: 1,
+			author,
+		};
+		dispatch(addItem(item));
+	};
+
 	return (
-		<div className={classNames(cls.Card, [className])}>
+		<div className={cls.Card}>
 			<Image
 				className={cls.image}
 				draggable={false}
-				src={CoverImage}
+				width={210}
+				height={325}
+				src={img ? img : CoverImage}
 				alt="book"
 			/>
 			<div className={cls.infoInner}>
-				<p className={cls.author}>Kevin Kwan</p>
-				<h4 className={cls.title}>Crazy rich asians</h4>
+				<p className={cls.author}>{author}</p>
+				<h4 className={cls.title}>{title}</h4>
 				<div className={cls.stars}>
-					<Star stars={4} reviews={4} />
+					{stars > 0.4 && reviews > 0 && (
+						<Star stars={stars} reviews={reviews} />
+					)}
 				</div>
-				<p className={cls.description}>
-					the outrageously funny debut novel about three super-rich, pedigreed
-					Chinese families and the gossip...
-				</p>
-				<div className={cls.price}>Code, price</div>
-				<Button appButton>buy now</Button>
+				<p className={cls.description}>{description}</p>
+				<div className={cls.price}>
+					{' '}
+					{currencyCodeType}
+					{price}
+				</div>
+				{!items.some((product) => product.id === id) ? (
+					<Button appButton onClick={onClickAdd}>
+						buy now
+					</Button>
+				) : (
+					<Button appButton onClick={onClickRemove}>
+						in the cart
+					</Button>
+				)}
 			</div>
 		</div>
 	);

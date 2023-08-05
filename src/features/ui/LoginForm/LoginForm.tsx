@@ -90,7 +90,7 @@ export const LoginForm = () => {
 					Sign out
 				</Button>
 			) : (
-				<Button className={cls.loginBtn} onClick={handleSubmit}>
+				<Button className={cls.loginBtn} onClick={handleSubmit} appButton>
 					Log in
 				</Button>
 			)}

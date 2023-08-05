@@ -13,7 +13,6 @@
   font-size: 12px;
   background-color: var(--white);
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-
   @media (max-width: 768px) {
     right: -50%;
   }
@@ -57,12 +56,23 @@
 }
 
 .loginBtn{
-  width: 176px;
-  height: 32px;
-  background-color:var(--btn);
-  color: var(--white);
-  text-transform: uppercase;
   margin-top: 45px;
+}
+
+[data-theme="dark"] .loginForm {
+  background-color: var(--bg-card);
+}
+
+[data-theme="dark"] .inputLabel {
+  color: var(--text-white);
+}
+
+[data-theme="dark"] .loginFormTitle {
+  color: var(--text-white);
+}
+
+[data-theme="dark"] .input {
+  background-color: var(--text-white);
 }
 
 

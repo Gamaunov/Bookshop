@@ -4,6 +4,7 @@
 	"useTabs": true,
 	"semi": true,
 	"singleQuote": true,
+	"printWidth": 80,
 	"plugins": ["@trivago/prettier-plugin-sort-imports"],
 	"importOrder": [
 		"next*",

@@ -4,7 +4,6 @@ import cls from './Button.module.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;
-	disabled?: boolean;
 	children?: ReactNode;
 	type?: 'submit' | 'reset' | 'button';
 	appButton?: boolean;
@@ -16,7 +15,6 @@ export const Button = memo((props: ButtonProps) => {
 	const {
 		className,
 		children,
-		disabled,
 		type = 'button',
 		appButton,
 		...otherProps
@@ -29,7 +27,6 @@ export const Button = memo((props: ButtonProps) => {
 				className,
 				appButton ? cls.appButton : '',
 			])}
-			disabled={disabled}
 			{...otherProps}
 		>
 			{children}

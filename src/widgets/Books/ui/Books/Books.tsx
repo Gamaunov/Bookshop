@@ -1,11 +1,15 @@
 'use client';
 
+import { Card } from '../Card/Card';
 import { uuid } from 'uuidv4';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@/app/store/store';
+import { getBooks } from '@/widgets/Books/model/bookSlice';
+import { setSearchValue } from '@/widgets/Books/model/searchValueSlice';
 import { setIndex } from '@/widgets/Books/model/startIndexSlice';
-import { Card } from '@/widgets/Books/ui/Card/Card';
+import CardSkeleton from '@/widgets/Books/ui/CardSkeleton/CardSkeleton';
+import { Status } from '@/shared/enums/status';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button/Button';
 import cls from './Books.module.scss';
@@ -16,24 +20,39 @@ interface NavbarProps {
 
 export const Books = ({ className }: NavbarProps) => {
 	const dispatch: AppDispatch = useDispatch();
-	const { category } = useSelector((state: RootState) => state.categorySlice);
-	const index = useSelector((state: RootState) => state.startIndexSlice);
+
 	const [active, setActive] = useState(0);
+
+	const { category } = useSelector((state: RootState) => state.categorySlice);
+	const searchSubject = useSelector(
+		(state: RootState) => state.searchValueSlice.searchValue
+	);
+	const index = useSelector((state: RootState) => state.startIndexSlice.index);
+	// @ts-ignore
+	const books = useSelector((state: RootState) => state.bookSlice.books.items);
+	const { status } = useSelector((state: RootState) => state.bookSlice);
+	console.log(books);
 	const handleCategory = (i: number) => {
 		const subject = category[i].search;
 		const startIndex = 0;
 		setActive(i);
-		// dispatch(getBooks({ subject, startIndex }));
-		// dispatch(setSearchValue(categories[i].search));
+		dispatch(getBooks({ subject, startIndex }));
+		dispatch(setSearchValue(category[i].search));
 		dispatch(setIndex(0));
 	};
 
 	const handleIndex = () => {
-		// const subject = searchSubject;
-		// const startIndex = index + 6;
-		// dispatch(getBooks({ subject, startIndex }));
-		// dispatch(setIndex(index + 6));
+		const subject = searchSubject;
+		const startIndex = index + 6;
+		dispatch(getBooks({ subject, startIndex }));
+		dispatch(setIndex(index + 6));
 	};
+
+	useEffect(() => {
+		handleCategory(0);
+	}, []); // eslint-disable-line
+
+	const skeletons = [...new Array(6)].map((_) => <CardSkeleton key={uuid()} />);
 
 	return (
 		<main className={classNames(cls.Books, [className])}>
@@ -54,10 +73,10 @@ export const Books = ({ className }: NavbarProps) => {
 			</menu>
 			<section className={cls.cards}>
 				<div className={cls.cardInner}>
-					<Card />
-					<Card />
-					<Card />
-					<Card />
+					{status === Status.LOADING
+						? skeletons
+						: // @ts-ignore
+						  books?.map((book) => <Card key={uuid()} book={book} />)}
 				</div>
 				<div className={cls.loadMore}>
 					<span onClick={() => handleIndex()}>
