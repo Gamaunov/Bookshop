@@ -31,9 +31,7 @@
   background: transparent;
 }
 
-
 .menuIcon{
-  cursor: pointer;
   width: 15px;
   height: 15px;
   [data-theme="dark"]{
@@ -71,7 +69,6 @@
 }
 
 .navItem{
-  cursor: pointer;
   &:nth-child(1) {
     width: 45px;
   }

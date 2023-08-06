@@ -7,5 +7,4 @@ export enum AppRoutes {
 	PROFILE = 'profile',
 	STATIONERY_GIFTS = 'stationery-gifts',
 	TOP_BOOKS = 'top-books',
-	NOT_FOUND = 'not_found',
 }

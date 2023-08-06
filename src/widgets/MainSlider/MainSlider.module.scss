@@ -1,8 +1,11 @@
 .MainSlider{
   position: relative;
 }
+
 .topLink,
 .bottomLink{
+  position: absolute;
+  z-index: 1;
   @media (max-width: 560px) {
     display: none;
   }

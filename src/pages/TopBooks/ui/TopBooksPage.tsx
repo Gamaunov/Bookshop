@@ -13,7 +13,7 @@ export const TopBooksPage = () => {
 
 	return (
 		<section className={cls.TopBooks}>
-			<h1 className={cls.title}>Top 100 Books 2022</h1>
+			<h1 className={cls.title}>Top 100 Books</h1>
 			<ul className={cls.booksInner}>
 				{topBooks?.map((book, i) => (
 					<li className={cls.book} key={book}>
