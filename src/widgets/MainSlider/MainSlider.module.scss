@@ -8,10 +8,11 @@
   }
 }
 
-
 .topLink{
   top: 80px;
   right: 10px;
+  pointer-events: none;
+  cursor: default;
   @media (max-width: 1280px) {
     right: 20px;
   }
@@ -25,10 +26,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  font-size: 18px;
+  font-size: var(--text-lg);
   text-transform: uppercase;
   @media (max-width: 768px) {
-    font-size: 12px;
+    font-size: var(--text-xs);
   }
 }
 

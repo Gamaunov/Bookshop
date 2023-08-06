@@ -1,0 +1,43 @@
+.books {
+	max-width: 1280px;
+	margin: 0 auto 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+}
+.title {
+	font-size: var(--text-3xl);
+}
+.booksInner {
+	display: grid;
+	grid-template-columns: repeat(4, 220px);
+	grid-template-rows: repeat(2, 350px);
+	grid-gap: 30px;
+	@media (max-width: 1200px) {
+		grid-template-columns: repeat(3, 220px);
+	}
+	@media (max-width: 768px) {
+		grid-template-columns: repeat(2, 220px);
+	}
+	@media (max-width: 580px) {
+		grid-template-columns: repeat(1, 220px);
+	}
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+}
+
+.cardTitle{
+	font-size: var(--text-base);
+}
+
+.image {
+	width: 220px;
+	height: 300px;
+	object-fit: cover;
+}

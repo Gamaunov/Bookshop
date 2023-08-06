@@ -16,7 +16,7 @@
 }
 
 .logo{
-  font-size: 24px;
+  font-size: var(--text-2xl);
 }
 
 .menu{
@@ -25,9 +25,6 @@
   align-items: center;
   justify-content: space-between;
 
-}
-.menuItem{
- &:hover{}
 }
 
 .modalBtn{
@@ -50,7 +47,7 @@
 
 .nav {
   @media (max-width: 480px) {
-    font-size: 8px;
+    font-size: var(--text-small);
     column-gap: 0;
   }
 }
@@ -60,15 +57,15 @@
   column-gap: 18px;
   justify-content: center;
   color: var(--text-gray);
-  font-weight: 700;
-  font-size: 10px;
+  font-weight: var(--w-bold);
+  font-size: var(--text-main);
   line-height: 12px;
   text-transform: uppercase;
   @media (max-width: 1024px) {
     column-gap: 20px;
   }
   @media (max-width: 480px) {
-    font-size: 9px;
+    font-size: var(--text-main-minus);
     column-gap: 2px;
   }
 }
@@ -88,7 +85,7 @@
     width: 37px;
   }
   &:hover {
-    font-weight: 900;
+    font-weight: var(--w-black);
     color: var(--text-dark);
   }
   [data-theme="dark"] &:hover {

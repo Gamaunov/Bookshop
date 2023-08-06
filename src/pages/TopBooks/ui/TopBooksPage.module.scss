@@ -1,0 +1,51 @@
+.TopBooks{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  font-size: var(--text-base);
+  margin: 100px 0;
+  @media (max-width: 978px) {
+    font-size: var(--text-main);
+  }
+}
+
+.title{
+  font-size: var(--text-2xl);
+  @media (max-width: 580px) {
+    font-size: var(--text-base);
+  }
+}
+
+.booksInner{
+  display: grid;
+  grid-template-columns: repeat(4, 280px);
+  grid-template-rows: repeat(25, 50px);
+  align-items: center;
+  grid-gap: 5px 5px;
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 280px);
+    grid-template-rows: repeat(34, 50px);
+  }
+  @media (max-width: 978px) {
+    grid-template-columns: repeat(3, 230px);
+    grid-template-rows: repeat(34, 30px);
+  }
+  @media (max-width: 755px) {
+    grid-template-columns: repeat(2, 230px);
+    grid-template-rows: repeat(50, 30px);
+  }
+  @media (max-width: 580px) {
+    grid-template-columns: repeat(2, 140px);
+    grid-template-rows: repeat(50, 30px);
+  }
+}
+
+.book{
+  font-weight: var(--w-bold);
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .book {
+  color: var(--text-white);
+}

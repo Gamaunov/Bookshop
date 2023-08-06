@@ -19,7 +19,7 @@
 	font-size: 24px;
 	margin-bottom: 20px;
 	@media (max-width: 360px) {
-		font-size: 16px;
+		font-size: var(--text-base);
 	}
 }
 
@@ -42,7 +42,7 @@
 .totalPrice {
 	font-size: 24px;
 	@media (max-width: 360px) {
-		font-size: 16px;
+		font-size: var(--text-base);
 	}
 }
 

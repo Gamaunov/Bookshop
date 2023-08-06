@@ -11,23 +11,21 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import cartSlice from '@/pages/CartPage/model/cartSlice';
+import topBookSlice from '@/pages/TopBooks/model/topBooksSlice';
 import bookSlice from '@/widgets/Books/model/bookSlice';
-// Define your reducers here
 import categorySlice from '@/widgets/Books/model/categorySlice';
 import searchValueSlice from '@/widgets/Books/model/searchValueSlice';
 import startIndexSlice from '@/widgets/Books/model/startIndexSlice';
 
-// Combine your reducers into the root reducer
 const rootReducer = combineReducers({
 	categorySlice,
 	startIndexSlice,
 	searchValueSlice,
 	cartSlice,
 	bookSlice,
-	// Add other reducers if needed
+	topBookSlice,
 });
 
-// Define the persist configuration options
 const persistConfig = {
 	key: 'root',
 	storage,
@@ -36,13 +34,12 @@ const persistConfig = {
 		'startIndexSlice',
 		'searchValueSlice',
 		'bookSlice',
+		'topBookSlice',
 	],
 };
 
-// Create the persisted reducer with the given configuration
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// Create the Redux store with persisted reducer and custom middleware
 const store = configureStore({
 	reducer: persistedReducer,
 	middleware: (getDefaultMiddleware) =>
@@ -53,13 +50,9 @@ const store = configureStore({
 		}),
 });
 
-// Create and export the persistor
 export const persistor = persistStore(store);
 
-// Export the store as default
 export default store;
 
-// Export RootState and AppDispatch types
 export type RootState = ReturnType<typeof rootReducer>;
-// export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

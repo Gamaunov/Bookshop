@@ -1,14 +1,16 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import Link from 'next/link';
+import { Button } from '@/shared/ui/Button/Button';
 import cls from './AudioBooksPage.module.scss';
 
-interface AudioBooksPageProps {
-	className?: string;
-}
-
-export const AudioBooksPage = ({ className }: AudioBooksPageProps) => {
+export const AudioBooksPage = () => {
 	return (
-		<div className={classNames(cls.AudioBooksPage, [className])}>
-			AudioBooksPage
-		</div>
+		<section className={cls.AudioBooksPage}>
+			<h1 className={cls.title}>Audio not available</h1>
+			<Link href="/">
+				<Button className="btn" appButton>
+					Go Back 🧐
+				</Button>
+			</Link>
+		</section>
 	);
 };

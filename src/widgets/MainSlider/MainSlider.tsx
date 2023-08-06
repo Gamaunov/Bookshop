@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Arrow from '@/shared/assets/svg/arrow.svg';
+import { AppRoutes } from '@/shared/config/routes/appRoutes';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { LinkBlock } from '@/shared/ui/LinkBlock/LinkBlock';
 import Slider from '@/shared/ui/Slider/Slider';
@@ -20,7 +21,7 @@ export const MainSlider = ({ className }: MainSliderProps) => {
 					<Image src={Arrow} alt="Arrow" />
 				</div>
 			</LinkBlock>
-			<LinkBlock href="/" className={cls.bottomLink}>
+			<LinkBlock href={AppRoutes.TOP_BOOKS} className={cls.bottomLink}>
 				<div className={cls.bottomLinkInner}>
 					<span>
 						top <br /> 100 <br /> books <br /> 2022

@@ -3,7 +3,7 @@
   align-items: center;
   gap: 35px;
   color: var(--text-gray);
-  font-size: 10px;
+  font-size: var(--text-main);
   max-width: 430px;
   padding-right: 5px;
   @media (max-width: 460px) {
@@ -35,7 +35,7 @@
 }
 
 .title{
-  font-size: 16px;
+  font-size: var(--text-base);
   color:  var(--text-dark);
   margin-bottom: 10px;
 }
@@ -49,7 +49,7 @@
 }
 
 .price{
-  font-size: 13px;
+  font-size: var(--text-xs-plus);
   color: var(--text-dark);
   margin-bottom: 15px;
 }

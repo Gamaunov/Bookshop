@@ -5,9 +5,9 @@ body {
   color: var(--text-dark);
   background-color: var(--bg);
   height: 100vh;
-  font-size: 10px;
+  font-size: var(--text-main);
   font-style: normal;
-  font-weight: 700;
+  font-weight: var(--w-bold);
   line-height: normal;
 }
 
