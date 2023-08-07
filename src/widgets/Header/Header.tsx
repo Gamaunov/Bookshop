@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { AiOutlineUser } from 'react-icons/ai';
 import { LiaLockSolid } from 'react-icons/lia';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/app/store/store';
 import { LoginForm } from '@/features/ui/LoginForm/LoginForm';
 import { AppRoutes } from '@/shared/config/routes/appRoutes';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -17,6 +19,7 @@ interface HeaderProps {
 
 export const Header = ({ className }: HeaderProps) => {
 	const [showLoginForm, setShowLoginForm] = useState(false);
+	const { items } = useSelector((state: RootState) => state.cartSlice);
 	const handleLogin = () => {
 		setShowLoginForm((prev) => !prev);
 	};
@@ -50,8 +53,9 @@ export const Header = ({ className }: HeaderProps) => {
 				<Button className={cls.modalBtn} onClick={handleLogin}>
 					<AiOutlineUser className={cls.menuIcon} />
 				</Button>
-				<AppLink appRoute={AppRoutes.CART}>
+				<AppLink className={cls.cart} appRoute={AppRoutes.CART}>
 					<LiaLockSolid className={cls.menuIcon} />
+					<span className={cls.cartCount}>{items.length}</span>
 				</AppLink>
 				<ThemeSwitcher />
 				{showLoginForm && <LoginForm />}
