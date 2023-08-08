@@ -11,7 +11,13 @@ export default function Page() {
 			<div className={cls.booksInner}>
 				{books.map((book) => (
 					<div className={cls.card} key={book.id}>
-						<Image placeholder="blur" draggable={false} className={cls.image} src={book.img} alt={book.title} />
+						<Image
+							placeholder="blur"
+							draggable={false}
+							className={cls.image}
+							src={book.img}
+							alt={book.title}
+						/>
 						<h3 className={cls.cardTitle}> {book.title} </h3>
 					</div>
 				))}
