@@ -1,4 +1,3 @@
-import { signIn, signOut, useSession } from 'next-auth/react';
 import { ChangeEvent, useState } from 'react';
 import {
 	emailRegex,
@@ -40,11 +39,11 @@ export const LoginForm = () => {
 		}
 		console.log('Submit form:', email, password);
 
-		session && session.user ? signOut() : signIn();
+		// session && session.user ? signOut() : signIn();
 	};
 
-	const { data: session } = useSession();
-	console.log(session?.user);
+	// const { data: session } = useSession();
+	// console.log(session?.user);
 
 	return (
 		<form className={cls.loginForm}>
@@ -85,15 +84,15 @@ export const LoginForm = () => {
 					Input must be 6 characters long
 				</p>
 			</div>
-			{session && session.user ? (
-				<Button className={cls.loginBtn} onClick={handleSubmit}>
-					Sign out
-				</Button>
-			) : (
-				<Button className={cls.loginBtn} onClick={handleSubmit} appButton>
-					Log in
-				</Button>
-			)}
+			{/*{session && session.user ? (*/}
+			{/*	<Button className={cls.loginBtn} onClick={handleSubmit}>*/}
+			{/*		Sign out*/}
+			{/*	</Button>*/}
+			{/*) : (*/}
+			<Button className={cls.loginBtn} onClick={handleSubmit} appButton>
+				Log in
+			</Button>
+			{/*)}*/}
 		</form>
 	);
 };

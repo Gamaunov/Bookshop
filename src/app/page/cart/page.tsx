@@ -2,7 +2,7 @@
 
 import { CartEmpty } from './CartEmpty/CartEmpty';
 import CartItem from './CartItem/CartItem';
-import { uuid } from 'uuidv4';
+import { v4 } from 'uuid';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/app/store/store';
 import { Button } from '@/shared/ui/Button/Button';
@@ -16,7 +16,7 @@ export default function Page() {
 	const totalCount = items.reduce((sum, item) => sum + item.count, 0);
 
 	if (!totalCount) {
-		return <CartEmpty key={uuid()} />;
+		return <CartEmpty key={v4()} />;
 	}
 
 	return (

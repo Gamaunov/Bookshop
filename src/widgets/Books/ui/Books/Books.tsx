@@ -1,7 +1,7 @@
 'use client';
 
 import { Card } from '../Card/Card';
-import { uuid } from 'uuidv4';
+import { v4 } from 'uuid';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@/app/store/store';
@@ -52,7 +52,7 @@ export const Books = ({ className }: NavbarProps) => {
 		handleCategory(0);
 	}, []); // eslint-disable-line
 
-	const skeletons = [...new Array(6)].map((_) => <CardSkeleton key={uuid()} />);
+	const skeletons = [...new Array(6)].map((_) => <CardSkeleton key={v4()} />);
 
 	return (
 		<main className={classNames(cls.Books, [className])}>
@@ -64,7 +64,7 @@ export const Books = ({ className }: NavbarProps) => {
 							className={classNames('', [
 								active === i ? cls.active : cls.category,
 							])}
-							key={uuid()}
+							key={v4()}
 						>
 							{category.category}
 						</li>
@@ -75,7 +75,7 @@ export const Books = ({ className }: NavbarProps) => {
 				<div className={cls.cardInner}>
 					{status === Status.LOADING
 						? skeletons
-						: books?.map((book: any) => <Card key={uuid()} book={book} />)}
+						: books?.map((book: any) => <Card key={v4()} book={book} />)}
 				</div>
 				<div className={cls.loadMore}>
 					<span onClick={() => handleIndex()}>

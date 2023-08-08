@@ -77,6 +77,7 @@ const Slider: FC = ({ className }: HeaderProps) => {
 							width={1280}
 							height={702}
 							draggable={false}
+							priority
 						/>
 					</div>
 				))}
