@@ -1,10 +1,10 @@
 export enum AppRoutes {
 	HOME = '/',
-	AUDIOBOOKS = 'audiobooks',
-	BLOG = 'blog',
-	BOOKS = 'books',
-	CART = 'cart',
-	PROFILE = 'profile',
-	STATIONERY_GIFTS = 'stationery-gifts',
-	TOP_BOOKS = 'top-books',
+	AUDIOBOOKS = '/page/audiobooks',
+	BLOG = '/page/blog',
+	BOOKS = '/page/books',
+	CART = '/page/cart',
+	PROFILE = '/page/profile',
+	STATIONERY_GIFTS = '/page/stationery-gifts',
+	TOP_BOOKS = '/page/top-books',
 }
