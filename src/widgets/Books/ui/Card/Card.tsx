@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '@/app/store/store';
 import {
 	CartItemType,
 	addItem,
 	removeItem,
-} from '@/pages/CartPage/model/cartSlice';
+} from '@/app/page/cart/model/cartSlice';
+import { AppDispatch, RootState } from '@/app/store/store';
 import { Book } from '@/widgets/Books/model/types/insex';
 import CoverImage from '../../../../shared/assets/book-not-found.jpg';
 import { Button } from '@/shared/ui/Button/Button';

@@ -1,3 +1,5 @@
+import cartSlice from '../page/cart/model/cartSlice';
+import topBookSlice from '../page/top-books/model/topBooksSlice';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import {
 	FLUSH,
@@ -10,8 +12,6 @@ import {
 	persistStore,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import cartSlice from '@/pages/CartPage/model/cartSlice';
-import topBookSlice from '@/pages/TopBooks/model/topBooksSlice';
 import bookSlice from '@/widgets/Books/model/bookSlice';
 import categorySlice from '@/widgets/Books/model/categorySlice';
 import searchValueSlice from '@/widgets/Books/model/searchValueSlice';

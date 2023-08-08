@@ -31,7 +31,7 @@ export const Books = ({ className }: NavbarProps) => {
 	// @ts-ignore
 	const books = useSelector((state: RootState) => state.bookSlice.books.items);
 	const { status } = useSelector((state: RootState) => state.bookSlice);
-	console.log(books);
+
 	const handleCategory = (i: number) => {
 		const subject = category[i].search;
 		const startIndex = 0;
@@ -75,8 +75,7 @@ export const Books = ({ className }: NavbarProps) => {
 				<div className={cls.cardInner}>
 					{status === Status.LOADING
 						? skeletons
-						: // @ts-ignore
-						  books?.map((book) => <Card key={uuid()} book={book} />)}
+						: books?.map((book: any) => <Card key={uuid()} book={book} />)}
 				</div>
 				<div className={cls.loadMore}>
 					<span onClick={() => handleIndex()}>
